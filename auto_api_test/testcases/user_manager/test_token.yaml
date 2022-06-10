@@ -1,0 +1,21 @@
+-
+        name: $ddt{name}
+        request:
+                method: get
+                url: /cgi-bin/token?
+                base_url: ${read_config_yaml(base_url)}
+                params:
+                        grant_type: $ddt{grant_type}
+                        appid: $ddt{appid}
+                        secret: $ddt{secret}
+        parametrize:
+                - ['name','appid','secret','grant_type','assert_str']
+                - ['获得统一接口鉴权码-成功获取鉴权码','wxe4bbfbe0313806e6','bb6300f5bba4c5069d62dd9d99ad39f6','client_credential','access_token']
+                - ['获得统一接口鉴权码-appid为空','','bb6300f5bba4c5069d62dd9d99ad39f6','client_credential',41002]
+                - ['获得统一接口鉴权码-secret为空','wxe4bbfbe0313806e6','','client_credential',41003]
+        extract:
+                access_token: '"access_token":"(.*?)"'
+                expires_in: $.expires_in
+        validate:
+                - contains: '$ddt{assert_str}'
+

@@ -1,0 +1,11 @@
+-
+        name: 编辑标签接口
+        request:
+                method: post
+                url: https://api.weixin.qq.com/cgi-bin/media/uploadimg?
+                params:
+                        access_token: ${read_extract(access_token)}
+                files:
+                        media: "E:\\shu.jpg"
+        validate:
+                - contains: url

@@ -1,0 +1,13 @@
+-
+        name: 编辑标签接口
+        request:
+                method: post
+                url: /cgi-bin/tags/update?
+                base_url: ${read_config_yaml(base_url)}
+                params:
+                        access_token: ${read_extract(access_token)}
+                json: {"tag" : {"id":100,"name":"广东人${get_random(9999,100000)}"}}
+
+        validate:
+                - contains: ok
+
