@@ -1,0 +1,19 @@
+-
+        name: 获取登陆剩余尝试次数和超出次数的锁定时间
+        request:
+                method: post
+                url: /api.cgi?path=account&method=get_retrytimes_and_time
+                base_url: ${read_config_yaml(base_url)}
+                json:
+                        type: admin
+                headers:
+                        Origin: http://192.168.2.1
+                        Referer: http://jazz.wifi/index.htm\r\n
+                        X-Requested-With: XMLHttpRequest
+                        Content-Type: application/x-www-form-urlencoded
+                        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36
+        validate:
+                - contains: result
+                - contains: retry_times
+                - contains: remain_time
+
