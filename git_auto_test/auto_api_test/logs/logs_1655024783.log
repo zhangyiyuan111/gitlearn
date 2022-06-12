@@ -1,0 +1,37 @@
+[2022-06-12 17:06:23,228] logger.py-->print_log line:17 [INFO] ----------接口测试开始-----------
+[2022-06-12 17:06:23,228] logger.py-->print_log line:17 [INFO] 获得统一接口鉴权码-成功获取鉴权码
+[2022-06-12 17:06:23,228] logger.py-->print_log line:17 [INFO] 接口请求方式get
+[2022-06-12 17:06:23,229] logger.py-->print_log line:17 [INFO] 接口请求路径https://api.weixin.qq.com/cgi-bin/token?
+[2022-06-12 17:06:23,229] logger.py-->print_log line:17 [INFO] 接口请求参数{'params': {'grant_type': 'client_credential', 'appid': 'wxe4bbfbe0313806e6', 'secret': 'bb6300f5bba4c5069d62dd9d99ad39f6'}}
+[2022-06-12 17:06:23,634] logger.py-->print_log line:17 [INFO] 预期结果[{'contains': 'access_token'}]
+[2022-06-12 17:06:23,634] logger.py-->print_log line:17 [INFO] 实际结果{'access_token': '57_0xrc38VMTxch8PDRrKNcNSejhBWNH3DgHGk4w5_uVe_eSHjOSfOb5am9mzUJZZLOVh97eZaFZS-vgEGPGrtebD8WiJ-DwFQRcT-8h5Rc4P4lqC7VojnvOi0QuHuoesWGp3hFFfZPKaOPuUsrMSLjAGAHNG', 'expires_in': 7200}
+[2022-06-12 17:06:23,634] logger.py-->print_log line:17 [INFO] 包含断言成功
+[2022-06-12 17:06:23,635] logger.py-->print_log line:17 [INFO] 接口请求成功
+[2022-06-12 17:06:23,635] logger.py-->print_log line:17 [INFO] ----------接口请求结束----------
+
+[2022-06-12 17:06:23,637] logger.py-->print_log line:17 [INFO] ----------接口测试开始-----------
+[2022-06-12 17:06:23,637] logger.py-->print_log line:17 [INFO] 获得统一接口鉴权码-appid为空
+[2022-06-12 17:06:23,638] logger.py-->print_log line:17 [INFO] 接口请求方式get
+[2022-06-12 17:06:23,638] logger.py-->print_log line:17 [INFO] 接口请求路径https://api.weixin.qq.com/cgi-bin/token?
+[2022-06-12 17:06:23,638] logger.py-->print_log line:17 [INFO] 接口请求参数{'params': {'grant_type': 'client_credential', 'appid': '', 'secret': 'bb6300f5bba4c5069d62dd9d99ad39f6'}}
+[2022-06-12 17:06:23,697] logger.py-->print_log line:17 [INFO] extract正则写法有误或者没有提取到值
+[2022-06-12 17:06:23,698] logger.py-->print_log line:17 [INFO] json写法有误或者没有提取到值
+[2022-06-12 17:06:23,698] logger.py-->print_log line:17 [INFO] 预期结果[{'contains': '41002'}]
+[2022-06-12 17:06:23,698] logger.py-->print_log line:17 [INFO] 实际结果{'errcode': 41002, 'errmsg': 'appid missing rid: 62a5ac8f-05628db9-1be2c94e'}
+[2022-06-12 17:06:23,698] logger.py-->print_log line:17 [INFO] 包含断言成功
+[2022-06-12 17:06:23,698] logger.py-->print_log line:17 [INFO] 接口请求成功
+[2022-06-12 17:06:23,698] logger.py-->print_log line:17 [INFO] ----------接口请求结束----------
+
+[2022-06-12 17:06:23,701] logger.py-->print_log line:17 [INFO] ----------接口测试开始-----------
+[2022-06-12 17:06:23,701] logger.py-->print_log line:17 [INFO] 获得统一接口鉴权码-secret为空
+[2022-06-12 17:06:23,701] logger.py-->print_log line:17 [INFO] 接口请求方式get
+[2022-06-12 17:06:23,702] logger.py-->print_log line:17 [INFO] 接口请求路径https://api.weixin.qq.com/cgi-bin/token?
+[2022-06-12 17:06:23,702] logger.py-->print_log line:17 [INFO] 接口请求参数{'params': {'grant_type': 'client_credential', 'appid': 'wxe4bbfbe0313806e6', 'secret': ''}}
+[2022-06-12 17:06:23,848] logger.py-->print_log line:17 [INFO] extract正则写法有误或者没有提取到值
+[2022-06-12 17:06:23,848] logger.py-->print_log line:17 [INFO] json写法有误或者没有提取到值
+[2022-06-12 17:06:23,848] logger.py-->print_log line:17 [INFO] 预期结果[{'contains': '41003'}]
+[2022-06-12 17:06:23,848] logger.py-->print_log line:17 [INFO] 实际结果{'errcode': 41004, 'errmsg': 'appsecret missing rid: 62a5ac8f-0449b3d5-134c65c0'}
+[2022-06-12 17:06:23,848] logger.py-->print_log line:17 [INFO] 包含断言失败
+[2022-06-12 17:06:23,849] logger.py-->error_log line:11 [ERROR] 接口请求失败
+[2022-06-12 17:06:23,849] logger.py-->print_log line:17 [INFO] ----------接口请求结束----------
+

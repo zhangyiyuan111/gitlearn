@@ -1,0 +1,10 @@
+INFO     log:logger.py:17 ----------接口测试开始-----------
+INFO     log:logger.py:17 获得统一接口鉴权码-成功获取鉴权码
+INFO     log:logger.py:17 接口请求方式get
+INFO     log:logger.py:17 接口请求路径https://api.weixin.qq.com/cgi-bin/token?
+INFO     log:logger.py:17 接口请求参数{'params': {'grant_type': 'client_credential', 'appid': 'wxe4bbfbe0313806e6', 'secret': 'bb6300f5bba4c5069d62dd9d99ad39f6'}}
+INFO     log:logger.py:17 预期结果[{'contains': 'access_token'}]
+INFO     log:logger.py:17 实际结果{'access_token': '57__lx2MURZjDg4VOdvvdofBYjZSWi6iz_b7KyrXhCFrEO_kxjIkIYs5k5Hy4szmhqG0qtIKWonrI6PyWBBE-WmvPA7tuGGei6pBywvIeyC6Nxev-4rjrYotLV_0fKnMfT2rE0oaAY2XXuc_QRDNOUbAHABCI', 'expires_in': 7200}
+INFO     log:logger.py:17 包含断言成功
+INFO     log:logger.py:17 接口请求成功
+INFO     log:logger.py:17 ----------接口请求结束----------

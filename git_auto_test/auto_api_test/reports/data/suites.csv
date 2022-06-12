@@ -1,0 +1,5 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Jun 12 22:15:17 CST 2022","Sun Jun 12 22:15:17 CST 2022","56","testcases.user_manager","test_api","Test_api","","","test_token",""
+"passed","Sun Jun 12 22:15:16 CST 2022","Sun Jun 12 22:15:17 CST 2022","376","testcases.user_manager","test_api","Test_api","","","test_token",""
+"passed","Sun Jun 12 22:15:16 CST 2022","Sun Jun 12 22:15:16 CST 2022","0","testcases.router_api","test_router","Test_api","","","test_M403",""
+"failed","Sun Jun 12 22:15:17 CST 2022","Sun Jun 12 22:15:17 CST 2022","128","testcases.user_manager","test_api","Test_api","","","test_token",""
