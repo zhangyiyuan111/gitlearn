@@ -17,33 +17,33 @@ from hotload.debug_talk import debug_talk
 class Test_api:
 
     @allure.story("获取统一鉴权码")#接口名称
-    @pytest.mark.parametrize("caseinfo",parametrize_ddt("/testcases/user_manager/test_token.yaml"))
+    @pytest.mark.parametrize("caseinfo",parametrize_ddt("/testcases/test_user_manager/test_token.yaml"))
     def test_get_token(self,caseinfo):
         allure.dynamic.title("test_token")
         RequestUtil(debug_talk()).standard_yaml_testcase(caseinfo)
 
 
-    # @pytest.mark.parametrize("caseinfo",parametrize_ddt("/testcases/user_manager/edit_flag.yaml"))
+    # @pytest.mark.parametrize("caseinfo",parametrize_ddt("/testcases/test_user_manager/edit_flag.yaml"))
     # def test_edit_flag(self,caseinfo):
     #     RequestUtil(debug_talk()).standard_yaml_testcase(caseinfo)
     #
-    # @pytest.mark.parametrize("caseinfo", parametrize_ddt("/testcases/user_manager/select_flag.yaml"))
+    # @pytest.mark.parametrize("caseinfo", parametrize_ddt("/testcases/test_user_manager/select_flag.yaml"))
     # def test_select_flag(self,caseinfo):
     #     RequestUtil(debug_talk()).standard_yaml_testcase(caseinfo)
     #
-    # @pytest.mark.parametrize("caseinfo", parametrize_ddt("/testcases/user_manager/del_flag.yaml"))
+    # @pytest.mark.parametrize("caseinfo", parametrize_ddt("/testcases/test_user_manager/del_flag.yaml"))
     # def test_del_flag(self,caseinfo):
     #     RequestUtil(debug_talk()).standard_yaml_testcase(caseinfo)
     #
-    # @pytest.mark.parametrize("caseinfo", parametrize_ddt("/testcases/user_manager/file_upload.yaml"))
+    # @pytest.mark.parametrize("caseinfo", parametrize_ddt("/testcases/test_user_manager/file_upload.yaml"))
     # def test_file_upload(self,caseinfo):
     #     RequestUtil(debug_talk()).standard_yaml_testcase(caseinfo)
 
-    # @pytest.mark.parametrize("caseinfo", parametrize_ddt("/testcases/user_manager/rand_get.yaml"))
+    # @pytest.mark.parametrize("caseinfo", parametrize_ddt("/testcases/test_user_manager/rand_get.yaml"))
     # def test_rand_get(self, caseinfo):
     #     RequestUtil(debug_talk()).standard_yaml_testcase(caseinfo)
     #
-    # @pytest.mark.parametrize("caseinfo", parametrize_ddt("/testcases/user_manager/md5_login.yaml"))
+    # @pytest.mark.parametrize("caseinfo", parametrize_ddt("/testcases/test_user_manager/md5_login.yaml"))
     # def test_md5_login(self,caseinfo):
     #     RequestUtil(debug_talk()).standard_yaml_testcase(caseinfo)
 

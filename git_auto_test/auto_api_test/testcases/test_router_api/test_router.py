@@ -17,26 +17,26 @@ class Test_api:
             print("M403")
 
 #
-#     @pytest.mark.parametrize("caseinfo",parametrize_ddt("/testcases/router_api/rand_get.yaml"))
+#     @pytest.mark.parametrize("caseinfo",parametrize_ddt("/testcases/test_router_api/rand_get.yaml"))
 #     def rand_get(self,caseinfo):
 #         RequestUtil(debug_talk()).standard_yaml_testcase(caseinfo)
 #
-#     @pytest.mark.parametrize("caseinfo", parametrize_ddt("/testcases/router_api/md5_login.yaml"))
+#     @pytest.mark.parametrize("caseinfo", parametrize_ddt("/testcases/test_router_api/md5_login.yaml"))
 #     def md5_login(self, caseinfo):
 #         RequestUtil(debug_talk()).standard_yaml_testcase(caseinfo)
 #
-#     @pytest.mark.parametrize("caseinfo", parametrize_ddt("/testcases/router_api/get_login_info.yaml"))
+#     @pytest.mark.parametrize("caseinfo", parametrize_ddt("/testcases/test_router_api/get_login_info.yaml"))
 #     def get_login_info(self, caseinfo):
 #         RequestUtil(debug_talk()).standard_yaml_testcase(caseinfo)
 #
-#     @pytest.mark.parametrize("caseinfo", parametrize_ddt("/testcases/router_api/get_login_status.yaml"))
+#     @pytest.mark.parametrize("caseinfo", parametrize_ddt("/testcases/test_router_api/get_login_status.yaml"))
 #     def get_login_status(self, caseinfo):
 #         RequestUtil(debug_talk()).standard_yaml_testcase(caseinfo)
 #
-#     @pytest.mark.parametrize("caseinfo", parametrize_ddt("/testcases/router_api/set_login_info.yaml"))
+#     @pytest.mark.parametrize("caseinfo", parametrize_ddt("/testcases/test_router_api/set_login_info.yaml"))
 #     def set_login_info(self, caseinfo):
 #         RequestUtil(debug_talk()).standard_yaml_testcase(caseinfo)
 #
-#     @pytest.mark.parametrize("caseinfo", parametrize_ddt("/testcases/router_api/get_retrytimes_and_time.yaml"))
+#     @pytest.mark.parametrize("caseinfo", parametrize_ddt("/testcases/test_router_api/get_retrytimes_and_time.yaml"))
 #     def get_retrytimes_and_time(self, caseinfo):
 #         RequestUtil(debug_talk()).standard_yaml_testcase(caseinfo)
