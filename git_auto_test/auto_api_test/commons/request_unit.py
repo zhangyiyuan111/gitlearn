@@ -52,7 +52,7 @@ class RequestUtil:
                     url = caseinfo["request"].pop("url")
                     res = self.send_all_request(method=method,url=url,base_url=base_url,**caseinfo["request"])
                     text_result =res.text
-                    # print(text_result)
+                    print(text_result)
                     try:
                         json_result = res.json()
                     except:
@@ -68,13 +68,18 @@ class RequestUtil:
                                     write_yaml("extract.yaml",data)
                                 else:
                                     print_log("extract正则写法有误或者没有提取到值")
-                            else:
+                            elif "$." in value:
                                 js_value = jsonpath.jsonpath(json_result,value)         #json仅仅支持json格式数据
                                 if js_value:
                                     data = {key:js_value[0]}
                                     write_yaml("extract.yaml",data)
                                 else:
                                     print_log("json写法有误或者没有提取到值")
+                            else:
+                                current_value = value
+                                if current_value:
+                                    data = {key: current_value}
+                                    write_yaml("extract.yaml",data)
                     #断言
                     want_result = caseinfo["validate"]  #预期结果
                     print_log("预期结果{}".format(want_result))

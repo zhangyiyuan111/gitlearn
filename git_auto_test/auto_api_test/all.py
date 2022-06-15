@@ -5,7 +5,7 @@ import pytest
 
 if __name__ == '__main__':
     pytest.main()
-    time.sleep(2)
+    time.sleep(1)
     os.system("allure generate ./temps -o ./reports --clean")
 
 

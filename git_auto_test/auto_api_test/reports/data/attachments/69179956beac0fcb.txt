@@ -1,0 +1,11 @@
+INFO     log:logger.py:17 ----------接口测试开始-----------
+INFO     log:logger.py:17 获取随机数获取sdcard用户随机数-user_id空
+INFO     log:logger.py:17 接口请求方式post
+INFO     log:logger.py:17 接口请求路径http://jazz.wifi/api.cgi?path=account&method=get_rand
+INFO     log:logger.py:17 接口请求参数{'json': {'type': 'sdcard', 'user_id': ''}}
+INFO     log:logger.py:17 接口请求参数{'headers': {'Origin': 'http://192.168.2.1', 'Referer': 'http://jazz.wifi/index.htm\\r\\n', 'X-Requested-With': 'XMLHttpRequest', 'Content-Type': 'application/x-www-form-urlencoded', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36'}}
+INFO     log:logger.py:17 预期结果[{'contains': '4'}]
+INFO     log:logger.py:17 实际结果{'result': 0, 'rand': 'bgcba9iy'}
+INFO     log:logger.py:17 包含断言失败
+ERROR    log:logger.py:11 接口请求失败
+INFO     log:logger.py:17 ----------接口请求结束----------

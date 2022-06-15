@@ -10,7 +10,7 @@ def get_cases():
 
 def load_cases(testpy_name):
     cases_name = get_cases()
-    py_name = "test_"+testpy_name+".py"
+    py_name = testpy_name+".py"
     #写入前面模板
     with open(py_name,mode="w",encoding="utf-8") as f:
         f.write("import random\n")
@@ -28,18 +28,18 @@ def load_cases(testpy_name):
 
     with open(py_name, mode="a", encoding="utf-8") as f:
         for i in cases_name:
-            f.write('   @pytest.mark.parametrize("caseinfo",parametrize_ddt("' + get_base_path() + i + '"))\n')
-            f.write('   def test_get_token(self,caseinfo):\n')
-            f.write('       RequestUtil(debug_talk()).standard_yaml_testcase(caseinfo)\n')
+            f.write('    @pytest.mark.parametrize("caseinfo",parametrize_ddt("' + get_base_path() + i + '"))\n')
+            f.write('    def '+i[:-5]+'(self,caseinfo):\n')
+            f.write('        RequestUtil(debug_talk()).standard_yaml_testcase(caseinfo)\n')
             f.write('   \n')
 
 def get_base_path():
     path_all = os.getcwd()
-    path_fenkai = path_all.split("auto_api_test\\")
-    finnal_path = "auto_api_test/"+path_fenkai[1]
+    path_fenkai = path_all.split("testcases\\")
+    finnal_path = "testcases/" + path_fenkai[1]
     for i in finnal_path:
         if i == "\\":
             finnal_path = finnal_path.replace("\\", "/")
     return finnal_path + '/'
 
-load_cases("vx_api")
+load_cases("test_api")
