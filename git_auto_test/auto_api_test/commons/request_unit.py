@@ -36,15 +36,16 @@ class RequestUtil:
                         value[file_key] = open(file_value,"rb")
             return RequestUtil.sess.request(method,url,**kwargs)
         except Exception as e:
-            error_log("发送请求报错{}".format(e))
+            error_log("发送请求报错:{}".format(e))
             raise e
-    try:
-        #统一接口请求封装
-        def standard_yaml_testcase(self,caseinfo):
+
+    #统一接口请求封装
+    def standard_yaml_testcase(self,caseinfo):
+        try:
             print_log("----------接口测试开始-----------")
             caseinfo_keys = caseinfo.keys()
             if "name" in caseinfo_keys and "request" in caseinfo_keys and "validate" in caseinfo_keys:
-                print_log(caseinfo["name"])
+                print_log("接口请求名字：{}".format(caseinfo["name"]))
                 request_keys = caseinfo["request"].keys()
                 if "method" in request_keys and "url" in request_keys and "base_url" in request_keys:
                     method =caseinfo["request"].pop("method")
@@ -52,7 +53,8 @@ class RequestUtil:
                     url = caseinfo["request"].pop("url")
                     res = self.send_all_request(method=method,url=url,base_url=base_url,**caseinfo["request"])
                     text_result =res.text
-                    print(text_result)
+                    res_cookies = dict(res.cookies)
+                    text_cookies = str(res_cookies)
                     try:
                         json_result = res.json()
                     except:
@@ -60,7 +62,18 @@ class RequestUtil:
                     #提取接口关联的值
                     if "extract" in caseinfo_keys :
                         for key,value in caseinfo["extract"].items():
-                            if "(.*?)" in value or "(.+?)" in value:
+                            #通过正则取cookies下面的值
+                            if "$$" in value and ("(.*?)" in value or "(.+?)" in value):
+                                value = value[3:-1]
+                                re_value = re.search(value, text_cookies)  # 正则仅仅支持文本格式
+                                if re_value:
+                                    re_value = re_value.group(1)
+                                    data = {key: re_value}
+                                    write_yaml("extract.yaml", data)
+                                else:
+                                    print_log("extract正则写法有误或者没有提取到值")
+                            #通过正则取response下面的值
+                            elif "(.*?)" in value or "(.+?)" in value:
                                 re_value = re.search(value,text_result)    #正则仅仅支持文本格式
                                 if re_value:
                                     re_value = re_value.group(1)
@@ -68,6 +81,7 @@ class RequestUtil:
                                     write_yaml("extract.yaml",data)
                                 else:
                                     print_log("extract正则写法有误或者没有提取到值")
+                            # 通过jsonpath取response下面的值
                             elif "$." in value:
                                 js_value = jsonpath.jsonpath(json_result,value)         #json仅仅支持json格式数据
                                 if js_value:
@@ -94,10 +108,11 @@ class RequestUtil:
                     error_log("request下必须包含关键字：method、url、base_url")
             else:
                 error_log("yaml用力必须包含一级关键字：name、request、validate")
+        except Exception as e:
+            error_log("规范yaml测试用例报错:{}".format(e))
+            raise e
+        finally:
             print_log("----------接口请求结束----------\n")
-    except Exception as e:
-        error_log("规范yaml测试用例报错{}".format(e))
-        raise e
 
     #替换取值封装
     #可能的值：json、url、params、data、headers
@@ -140,7 +155,7 @@ class RequestUtil:
                 print_log("None不需要进行取值")
             return data
         except Exception as e:
-            error_log("热加载报错{}".format(e))
+            error_log("热加载替换测试用例报错:{}".format(e))
             raise e
 
 

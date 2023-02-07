@@ -1,9 +1,0 @@
--
-        name: 获得统一接口鉴权码
-        request:
-                method: get
-                url: https://api.weixin.qq.com/cgi-bin/tags/get
-                params:
-                        access_token: ${read_extract(access_token)}
-        validate: null
-

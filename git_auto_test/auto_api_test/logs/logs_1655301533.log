@@ -1,3 +1,0 @@
-[2022-06-15 21:58:53,488] logger.py-->error_log line:11 [ERROR] 读取测试用例yaml文件失败object of type 'NoneType' has no len()
-[2022-06-15 21:58:53,488] logger.py-->print_log line:17 [INFO] ----------接口请求结束----------
-

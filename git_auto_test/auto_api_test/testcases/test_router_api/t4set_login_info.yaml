@@ -1,22 +1,28 @@
 -
-        name: 获取登录信息
+        name: 设置登录信息-$ddt{name}
         request:
                 method: post
                 url: /api.cgi?path=account&method=set_info
                 base_url: ${read_config_yaml(base_url)}
                 json:
-                        type: admin
-                        username: admin
-                        password: admin
-                        total_time: 300
+                        type: $ddt{type}
+                        username: $ddt{username}
+                        password: $ddt{password}
+                        total_time: $ddt{total_time}
 
                 headers:
-                        Origin: http://192.168.2.1
+                        Origin: http://192.168.8.1
                         Referer: http://jazz.wifi/index.htm\r\n
                         X-Requested-With: XMLHttpRequest
                         Content-Type: application/x-www-form-urlencoded
                         User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36
-                        cookie: locale=en; CGISID=6rmjvf37W62rfw6qvO8VaFXrjVFPJFOQ792Bo4ye1Azg9; currentPage=/html/home.html
+        parametrize:
+                - [ 'name'                    ,'type','username','password','total_time','assert_ddt' ]
+                - [ '设置admin登录信息-type空'   ,''     ,'admin','admin','300','4' ]
+                - [ '设置admin登录信息-username空','admin','    ','admin','300','4' ]
+                - [ '设置admin登录信息-password空','admin','admin','     ','300','4' ]
+                - [ '设置admin登录信息-total_time空','admin','admin','admin','  ','4' ]
+                - [ '设置admin登录信息-成功'     ,'admin','admin','admin','300','0' ]
         validate:
-                - contains: 0
+                - contains: '$ddt{assert_ddt}'
 

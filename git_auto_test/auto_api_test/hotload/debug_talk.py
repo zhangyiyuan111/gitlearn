@@ -36,3 +36,8 @@ class debug_talk:
             res = yaml.load(stream=f, Loader=yaml.FullLoader)
             return res[key]
 
+    def int_api(self,date:str):
+        if date.isdecimal():
+            return int(date)
+        else:
+            return date

@@ -31,5 +31,5 @@ def parametrize_ddt(path):
         else:
             return data
     except Exception as e:
-        error_log("读取测试用例yaml文件失败{}".format(e))
+        error_log("读取测试用例yaml文件失败:{}".format(e))
         raise e

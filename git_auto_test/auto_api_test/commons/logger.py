@@ -9,7 +9,6 @@ import yaml
 # 错误日志
 def error_log(message):
     LoggerUtil().creat_log().error(message)
-    print_log("----------接口请求结束----------\n")
     raise AssertionError(message)
 
 # 打印日志

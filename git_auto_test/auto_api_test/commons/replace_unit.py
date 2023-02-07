@@ -39,29 +39,34 @@ def get_times(date):
     return time_appear
 
 def digui(date):
-    if  "${" in date and "}" in date:
-        result = ""
-        start_index = date.index("(")
-        end_index = get_end_index(date=date)
-        fun_name_find = date[date.index("${")+2:start_index]
-        fun_value = date[start_index + 1:end_index]
-        fun_value_name = date[date.index("${"):get_end_index_da(date)+1]
-        if fun_value == "":
-            mid = getattr(debug_talk(), fun_name_find)()
-            result = date.replace(fun_value_name, mid)
-        elif "${" in fun_value:
-            fun_value = digui(fun_value)
-            fun_value = fun_value.split(",")
+    try:
+        if  "${" in date and "}" in date:
+            result = ""
+            start_index = date.index("(")
+            end_index = get_end_index(date=date)
+            fun_name_find = date[date.index("${")+2:start_index]
+            fun_value = date[start_index + 1:end_index]
+            fun_value_name = date[date.index("${"):get_end_index_da(date)+1]
+            if fun_value == "":
+                mid = getattr(debug_talk(), fun_name_find)()
+                result = date.replace(fun_value_name, mid)
+            elif "${" in fun_value:
+                fun_value = digui(fun_value)
+                fun_value = fun_value.split(",")
 
-            mid = getattr(debug_talk(), fun_name_find)(*fun_value)
-            result = date.replace(fun_value_name, mid)
+                mid = getattr(debug_talk(), fun_name_find)(*fun_value)
+                result = date.replace(fun_value_name, mid)
+            else:
+                fun_value = fun_value.split(",")
+                mid = getattr(debug_talk(), fun_name_find)(*fun_value)
+                result = date.replace(fun_value_name, mid)
+            return result
         else:
-            fun_value = fun_value.split(",")
-            mid = getattr(debug_talk(), fun_name_find)(*fun_value)
-            result = date.replace(fun_value_name, mid)
-        return result
-    else:
-        return date
+            return date
+    except Exception as e:
+        error_log("递归替换报错:{}".format(e))
+        raise e
+
 
 def replace_all(date):
     #循环次数
@@ -72,7 +77,7 @@ def replace_all(date):
             date = digui(date)
         return date
     except Exception as e:
-        error_log("热加载报错{}".format(e))
+        error_log("热加载替换用例报错:{}".format(e))
         raise e
 
 
